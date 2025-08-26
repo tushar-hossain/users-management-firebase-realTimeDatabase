@@ -1,5 +1,3 @@
-import { Flex } from "antd";
-import React from "react";
 import { Link } from "react-router";
 
 const Navbar = () => {
@@ -10,6 +8,7 @@ const Navbar = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginBottom: "10px",
         }}
       >
         <ul style={{ display: "flex", listStyle: "none" }}>

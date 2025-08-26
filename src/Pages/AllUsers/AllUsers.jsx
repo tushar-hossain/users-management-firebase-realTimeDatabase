@@ -1,5 +1,5 @@
 import { getDatabase, ref, get, onValue, remove } from "firebase/database";
-import { Space, Table, Tag } from "antd";
+import { Space, Table, Tag, Button, Popconfirm } from "antd";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
@@ -74,8 +74,15 @@ const AllUsers = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Link to={`/edit-users/${record.id}`}>Edit</Link>
-          <button onClick={() => handleDelete(record.id)}>Delete</button>
+          <Link to={`/edit-users/${record.id}`}>
+            <Button type="primary">Edit</Button>
+          </Link>
+          <Popconfirm
+            title="Sure to delete?"
+            onConfirm={() => handleDelete(record.id)}
+          >
+            <Button type="primary">Delete</Button>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -83,8 +90,7 @@ const AllUsers = () => {
 
   return (
     <div style={{ padding: "2rem" }}>
-      {/* {users?.map((user=> <Table  dataSource={user} />))} */}
-      <Table columns={columns} dataSource={users} />
+      <Table columns={columns} dataSource={users} bordered />
     </div>
   );
 };

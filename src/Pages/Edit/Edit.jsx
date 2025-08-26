@@ -1,6 +1,6 @@
 import { Button, Form, Input } from "antd";
 import { useEffect, useState } from "react";
-import { getDatabase, ref, get, remove, push } from "firebase/database";
+import { getDatabase, ref, get, remove, push, set } from "firebase/database";
 import { useParams } from "react-router";
 import { app } from "../../firebase/firebase.config";
 
@@ -16,7 +16,7 @@ const Edit = () => {
     // save data firebase database
     const db = getDatabase(app);
     const newDocRef = ref(db, `user-management/users/${id}`);
-    push(newDocRef, values)
+    set(newDocRef, values)
       .then(() => {
         alert("data update success");
       })
@@ -41,8 +41,6 @@ const Edit = () => {
       }
     });
   }, [id]);
-
-  // Delete data
 
   if (loading) return <p>Loading...</p>;
 

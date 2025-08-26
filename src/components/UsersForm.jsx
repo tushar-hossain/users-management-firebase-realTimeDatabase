@@ -48,7 +48,7 @@ const UsersForm = () => {
             name="name"
             rules={[{ required: true, message: "Please input your name!" }]}
           >
-            <Input />
+            <Input placeholder="Enter your name" />
           </Form.Item>
           {/* age */}
           <Form.Item
@@ -56,7 +56,7 @@ const UsersForm = () => {
             name="age"
             rules={[{ required: true, message: "Please input your age!" }]}
           >
-            <Input type="number" />
+            <Input type="number" placeholder="Enter your age" />
           </Form.Item>
 
           {/* address */}
@@ -65,7 +65,7 @@ const UsersForm = () => {
             name="address"
             rules={[{ required: true, message: "Please input your address!" }]}
           >
-            <Input />
+            <Input placeholder="Enter your address" />
           </Form.Item>
 
           {/* button */}
